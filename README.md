@@ -74,3 +74,81 @@ Atomic Design, 마이크로 프론트엔드, AWS Lambda, Supabase 등 기술을 
 - 사용자 투표 시스템과 부정행위 방지 규칙 구현.
 
 ---
+
+
+project-root/
+├── frontend/                          # 프론트엔드 코드
+│   ├── components/                    # Atomic Design에 따른 컴포넌트
+│   │   ├── atoms/                     # 최소 단위 UI 요소
+│   │   ├── molecules/                 # 여러 atoms로 구성된 UI 요소
+│   │   ├── organisms/                 # 기능적 UI 블록
+│   │   ├── templates/                 # 페이지 템플릿
+│   │   └── pages/                     # 완성된 페이지
+│   ├── hooks/                         # 재사용 가능한 React hooks
+│   ├── contexts/                      # 전역 상태 관리 (React Context API)
+│   ├── services/                      # API 요청 관련 코드
+│   ├── styles/                        # TailwindCSS 설정 및 전역 스타일
+│   ├── utils/                         # 공통 유틸리티 함수
+│   ├── tests/                         # 컴포넌트 테스트
+│   ├── storybook/                     # Storybook 설정 및 문서화
+│   ├── assets/                        # 프론트엔드 정적 자산
+│   │   ├── images/                    # 이미지 파일
+│   │   ├── icons/                     # 아이콘 파일
+│   │   └── fonts/                     # 웹폰트
+│   └── microfrontends/                # 마이크로 프론트엔드 관련 코드
+│       ├── game-mode1/                # 게임 모드 1
+│       ├── game-mode2/                # 게임 모드 2
+│       ├── admin-panel/               # 관리 페이지
+│       └── shared/                    # 공통 모듈
+│           ├── components/            # 공통 컴포넌트
+│           ├── utils/                 # 공통 유틸리티
+│           └── styles/                # 공통 스타일
+├── backend/                           # 백엔드 코드
+│   ├── functions/                     # AWS Lambda 또는 Supabase Edge Functions 코드
+│   │   ├── auth/                      # 인증 관련 Lambda 함수
+│   │   ├── game-logic/                # 게임 로직 처리
+│   │   ├── websocket/                 # 실시간 WebSocket 통신
+│   │   └── event-handlers/            # DynamoDB 또는 Supabase 트리거 처리
+│   ├── database/                      # 데이터베이스 관련 파일
+│   │   ├── schemas/                   # DB 스키마 정의
+│   │   ├── migrations/                # DB 마이그레이션 파일
+│   │   └── seeds/                     # 초기 데이터 생성 스크립트
+│   ├── services/                      # 서비스 레이어
+│   │   ├── supabase/                  # Supabase 관련 서비스
+│   │   ├── aws/                       # AWS 관련 서비스
+│   │   └── third-party/               # 외부 API 연동
+│   ├── config/                        # 백엔드 설정 파일
+│   │   ├── env/                       # 환경변수 파일
+│   │   └── app-config.ts              # 애플리케이션 설정
+│   ├── utils/                         # 공통 유틸리티 함수
+│   ├── middlewares/                   # API 미들웨어
+│   └── tests/                         # 백엔드 테스트 코드
+│       ├── unit/                      # 단위 테스트
+│       ├── integration/               # 통합 테스트
+│       └── e2e/                       # E2E 테스트
+├── public/                            # 정적 자산 (S3 또는 CloudFront 배포)
+│   ├── images/                        # 이미지 파일
+│   ├── icons/                         # 아이콘 파일
+│   └── assets/                        # 기타 정적 파일
+├── docs/                              # 문서화 파일
+│   ├── architecture/                  # 시스템 설계 문서
+│   ├── requirements/                  # 요구사항 정의서
+│   ├── api/                           # API 스펙 문서
+│   └── readme-assets/                 # README에서 사용하는 이미지 및 리소스
+├── scripts/                           # 빌드, 배포, CI/CD 스크립트
+│   ├── deploy/                        # 배포 관련 스크립트
+│   ├── build/                         # 빌드 스크립트
+│   └── lint/                          # 린트 및 코드 정리 스크립트
+├── config/                            # 글로벌 설정 파일
+│   ├── eslint/                        # ESLint 설정
+│   ├── prettier/                      # Prettier 설정
+│   └── tailwind.config.js             # TailwindCSS 설정
+├── tests/                             # 프로젝트 전역 테스트
+│   ├── e2e/                           # E2E 테스트
+│   ├── integration/                   # 통합 테스트
+│   └── unit/                          # 단위 테스트
+├── .env                               # 환경변수 파일
+├── package.json                       # 프로젝트 메타데이터 및 종속성
+├── README.md                          # 프로젝트 개요
+├── tsconfig.json                      # TypeScript 설정
+└── yarn.lock                          # Yarn 종속성 잠금 파일
